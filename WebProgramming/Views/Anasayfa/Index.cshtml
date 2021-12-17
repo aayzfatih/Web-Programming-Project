@@ -1,0 +1,171 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+
+@using WebProje5.Models
+@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+
+
+
+<main class="site-main">
+    <!--================Hero Banner start =================-->
+    <section class="mb-30px">
+        <div class="container">
+            <div class="hero-banner">
+                <div class="hero-banner__content">
+                    <h3>@localizer["tur"]</h3>
+                    <h1>@localizer["h1"]</h1>
+                    <h4>@localizer["ay"] 03, 2021</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--================Hero Banner end =================-->
+    <!--================ Blog slider start =================-->
+    <section>
+        <div class="container">
+            <div class="owl-carousel owl-theme blog-slider">
+                @foreach (var x in Model)
+                {
+
+                <div class="card blog__slide text-center">
+                    <div class="blog__slide__img">
+                        <img class="card-img rounded-0" src="@x.BlogImage" alt="">
+                    </div>
+                    <div class="blog__slide__content">
+                       
+                        <h3><a href="#">@x.Baslik</a></h3>
+                        <p>2 @localizer["day"]</p>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </section>
+    <!--================ Blog slider end =================-->
+    <!--================ Start Blog Post Area =================-->
+    <section class="blog-post-area section-margin mt-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+
+                    @foreach (var x in Model)
+                    {
+                        <div class="single-recent-blog-post">
+                            <div class="thumb">
+                                <img class="img-fluid" src=" @x.BlogImage" alt="">
+                                <ul class="thumb-info">
+                                    <li><a href="#"><i class="ti-user"></i>Admin</a></li>
+                                    <li><a href="#"><i class="ti-notepad"></i>@localizer["ay"] 09,2021</a></li>
+                                    <li><a href="#"><i class="ti-themify-favicon"></i>2 @localizer["c"]</a></li>
+                                </ul>
+                            </div>
+                            <div class="details mt-20">
+                                <a href="blog-single.html">
+                                    <h3>
+                                       @x.Aciklama.Substring(0,150)
+                                    </h3>
+                                </a>
+                               
+                                <p> @x.Aciklama.Substring(0, 300)</p>
+                                <a class="button" href="/Blog/Blogdetay/@x.ID">@localizer["read"] <i class="ti-arrow-right"></i></a>
+                            </div>
+                        </div>
+
+                    }
+
+
+
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <nav class="blog-pagination justify-content-center d-flex">
+                                    <ul class="pagination">
+                                        <li class="page-item">
+                                            <a href="#" class="page-link" aria-label="Previous">
+                                                <span aria-hidden="true">
+                                                    <i class="ti-angle-left"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+                                        <li class="page-item active"><a href="#" class="page-link">1</a></li>
+                                        <li class="page-item"><a href="#" class="page-link">2</a></li>
+                                        <li class="page-item">
+                                            <a href="#" class="page-link" aria-label="Next">
+                                                <span aria-hidden="true">
+                                                    <i class="ti-angle-right"></i>
+                                                </span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+                <!-- Start Blog Post Siddebar -->
+                <div class="col-lg-4 sidebar-widgets">
+                    <div class="widget-wrap">               
+
+                        <div class="single-sidebar-widget popular-post-widget">
+                            <h4 class="single-sidebar-widget__title">@localizer["pop"]</h4>
+                            <div class="popular-post-list">
+                                @foreach (var x in Model)
+                                {
+                                    <div class="single-post-list">
+                                        <div class="thumb">
+                                            <img class="card-img rounded-0" src="img/blog/thumb/thumb1.png" alt="">
+                                            <ul class="thumb-info">
+                                               
+                                                <li><a>@localizer["write"]: @x.tarih.ToShortDateString()</a></li>
+                                            </ul>
+                                        </div>
+                                        <div class="details mt-20">
+                                            <a href="#">
+                                                <h6>@x.Aciklama.Substring(0, 60)</h6>
+                                            </a>
+                                        </div>
+                                    </div>
+                                }
+                                </div>
+                        </div>
+
+                        <div class="single-sidebar-widget tag_cloud_widget">
+                            <h4 class="single-sidebar-widget__title">@localizer["pop"] @localizer["tag"]</h4>
+                            <ul class="list">
+                                <li>
+                                    <a href="#">project</a>
+                                </li>
+                                <li>
+                                    <a href="#">love</a>
+                                </li>
+                                <li>
+                                    <a href="#">technology</a>
+                                </li>
+                                <li>
+                                    <a href="#">travel</a>
+                                </li>
+                                <li>
+                                    <a href="#">software</a>
+                                </li>
+                                <li>
+                                    <a href="#">life style</a>
+                                </li>
+                                <li>
+                                    <a href="#">design</a>
+                                </li>
+                                <li>
+                                    <a href="#">illustration</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End Blog Post Siddebar -->
+        </div>
+    </section>
+    <!--================ End Blog Post Area =================-->
+</main>

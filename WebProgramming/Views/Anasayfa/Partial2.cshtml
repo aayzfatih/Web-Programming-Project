@@ -1,0 +1,19 @@
+﻿@using WebProje5.Models
+@model List<Blog>
+@foreach (var x in Model)
+{
+    <div class="left" style="margin-right: 0px !important;">
+        <div class="bot-left">
+            <img src="@x.BlogImage" alt="" />
+        </div>
+        <div class="left-text">
+
+            <h4>@x.Baslik</h4>
+            <span class="doller">@x.tarih.ToString("dd.mm.yyyy")</span>
+            <p>@x.Aciklama.Substring(0, 90)</p>
+            <p><a href="/Blog/BlogDetay/@x.ID"><span class="read">Read More >></span></a></p>
+        </div>
+    </div>
+    <div class="clear"></div>
+
+}

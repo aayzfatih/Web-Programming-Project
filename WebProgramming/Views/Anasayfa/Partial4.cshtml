@@ -1,0 +1,27 @@
+﻿@using WebProje5.Models
+@model List<Blog>
+
+<div class="padding1">
+    <h4>Our Best Places</h4>
+
+    <div class="box-left">
+
+        @foreach (var x in Model)
+        {
+            <div class="bot-img">
+                <img src="@x.BlogImage" alt="" />
+            </div>
+            <div class="bot-desc">
+                <p>@x.Aciklama.Substring(0, 90) </p>
+            </div>
+            <div class="clear"></div>
+        }
+    </div>
+    <div class="box1-left">
+
+        <partial name="Partial5.cshtml" />
+
+    </div>
+
+
+</div>

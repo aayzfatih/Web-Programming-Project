@@ -1,0 +1,30 @@
+﻿@model WebProje5.Models.Blog
+
+@{
+    ViewData["Title"] = "BlogGetir";
+    Layout = "~/Views/Shared/_AdminPaneli.cshtml";
+}
+
+
+<h2>BlogGetir</h2>
+
+@using (Html.BeginForm("BlogGuncelle", "Admin", FormMethod.Post))
+{
+
+    @Html.LabelFor(x => x.ID)
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.Baslik)
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.tarih)
+    @Html.TextBoxFor(x => x.tarih, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BlogImage)
+    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextAreaFor(x => x.Aciklama, 15, 1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-success">GÜNCELLE</button>
+}

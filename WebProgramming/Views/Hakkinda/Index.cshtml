@@ -1,0 +1,21 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
+}
+
+<div class="content">
+    <div class="wrap">
+        <div class="about">
+            <h3>@localizer["About"]</h3>
+            <img src="~/web/images/about_banner.jpg" alt="" />
+            <h2>@localizer["Baslik"] </h2><br /><br />
+            <p>@localizer["AboutAciklama1"] </p>
+            <p>@localizer["AboutAciklama2"] </p>
+            <p>@localizer["AboutAciklama3"] </p>
+            <p>@localizer["AboutAciklama4"] </p>
+            <p>@localizer["AboutAciklama5"] </p>
+
+        </div>
+    </div>
+</div>

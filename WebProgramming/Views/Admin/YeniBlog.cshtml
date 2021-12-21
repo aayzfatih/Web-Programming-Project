@@ -1,0 +1,24 @@
+﻿@using WebProje5.Models
+@model Blog
+@{
+    ViewData["Title"] = "YeniBlog";
+    Layout = "~/Views/Shared/_AdminPaneli.cshtml";
+}
+
+<h2>Yeni blok ekleme</h2>
+<form class="form-group" method="post">
+    @Html.LabelFor(x => x.Baslik)
+    @Html.TextBoxFor(x => x.Baslik, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.tarih)
+    @Html.TextBoxFor(x => x.tarih, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.BlogImage)
+    @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Aciklama)
+    @Html.TextAreaFor(x => x.Aciklama, 15, 1, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-primary">Blog Ekle</button>
+</form>
+

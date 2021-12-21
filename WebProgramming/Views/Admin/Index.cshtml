@@ -1,0 +1,31 @@
+﻿@using WebProje5.Models
+@model List<Blog>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminPaneli.cshtml";
+}
+
+<div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+    <h1 class="h2">Index</h1>
+</div>
+<table class="table table-bordered">
+    <tr>
+        <th width="60">ID</th>
+        <th>BASLİK</th>
+        <th width="120">SİL</th>
+        <th width="120">GUNCELLE</th>
+        <th width="120">DETAYLAR</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.ID</td>
+            <td>@x.Baslik</td>
+            <td><a href="/Admin/BlogSil/@x.ID" class="btn btn-danger">sil</a></td>
+            <td><a href="/Admin/BlogGetir/@x.ID" class="btn btn-warning">guncelle</a></td>
+            <td><a href="/Blog/BlogDetay/@x.ID" class="btn btn-light">detaylar</a></td>
+        </tr>
+    }
+</table>
+<a href="/Admin/YeniBlog/" class="btn btn-success">Blog Ekle</a>

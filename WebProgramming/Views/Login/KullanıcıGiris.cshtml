@@ -1,0 +1,49 @@
+﻿@inject Microsoft.AspNetCore.Mvc.Localization.IViewLocalizer localizer
+@using WebProje5.Models
+@model Kullanici
+@{
+    ViewData["Title"] = "KullanıcıGiris";
+    Layout = "~/Views/Shared/_Login.cshtml";
+}
+<!-- Sing in  Form -->
+<section class="sign-in">
+    <div class="container">
+        <div class="signin-content">
+            <div class="signin-image">
+                <figure><img src="~/web3/images/signin-image.jpg" alt="sing up image"></figure>
+                <a href="/Login/YeniKullanıci/" class="signup-image-link">@localizer["yenihesp"]</a>
+            </div>
+
+            <div class="signin-form">
+                <h2 class="form-title">@localizer["signup"]</h2>
+
+                <form method="POST" class="register-form" id="login-form" action="/Login/KullanıcıGiris/">
+                    <div class="form-group">
+                        <label for="your_name"><i class="zmdi zmdi-account material-icons-name"></i></label>
+                        <input type="text" name="kullanici_adi" id="your_name" placeholder="@localizer["name"]" />
+                    </div>
+                    <div class="form-group">
+                        <label for="your_pass"><i class="zmdi zmdi-lock"></i></label>
+                        <input type="password" name="Sifre" id="your_pass" placeholder="@localizer["pass"]" />
+                    </div>
+                    <div class="form-group">
+                        <input type="checkbox" name="remember-me" id="remember-me" class="agree-term" />
+                        <label for="remember-me" class="label-agree-term"><span><span></span></span>@localizer["remember"]</label>
+                    </div>
+                    <div class="form-group form-button">
+                        <input type="submit" name="signin" id="signin" class="form-submit" value="@localizer["giris"]" />
+                    </div>
+                </form>
+
+                <div class="social-login">
+                    <span class="social-label">@localizer["yada"]</span>
+                    <ul class="socials">
+                        <li><a href="#"><i class="display-flex-center zmdi zmdi-facebook"></i></a></li>
+                        <li><a href="#"><i class="display-flex-center zmdi zmdi-twitter"></i></a></li>
+                        <li><a href="#"><i class="display-flex-center zmdi zmdi-google"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

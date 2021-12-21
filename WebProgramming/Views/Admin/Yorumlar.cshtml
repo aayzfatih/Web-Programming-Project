@@ -1,0 +1,31 @@
+﻿@using WebProje5.Models
+@model List<Yorumlar>
+@{
+    ViewData["Title"] = "Yorumlar";
+    Layout = "~/Views/Shared/_AdminPaneli.cshtml";
+}
+
+<h2>Yorumlar</h2>
+
+<table class="table table-bordered">
+    <tr>
+        <th>isim</th>
+        <th>mail</th>
+        <th>yorum</th>
+        <th width="120">sil</th>
+        <th width="120">GUNCELLE</th>
+        <th width="120">Blog</th>
+
+    </tr>
+    @foreach (var x in Model)
+    {
+        <tr>
+            <td>@x.KallaniciAdi</td>
+            <td>@x.Mail</td>
+            <td>@x.Yorum</td>
+            <td><a href="/Admin/YorumSil/@x.Id" class="btn btn-danger">sil</a></td>
+            <td><a href="/Admin/YorumGetir/@x.Id" class="btn btn-warning">guncelle</a></td>
+            <td><a href="#" class="btn btn-light">@x.Blogid</a></td>
+        </tr>
+    }
+</table>

@@ -1,0 +1,27 @@
+﻿@model WebProje5.Models.Yorumlar
+
+@{
+    ViewData["Title"] = "YorumGetir";
+    Layout = "~/Views/Shared/_AdminPaneli.cshtml";
+}
+
+@using (Html.BeginForm("YorumGuncelle", "Admin", FormMethod.Post))
+{
+
+    @Html.LabelFor(x => x.Id)
+    @Html.TextBoxFor(x => x.Id, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    @Html.LabelFor(x => x.KallaniciAdi)
+    @Html.TextBoxFor(x => x.KallaniciAdi, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Mail)
+    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Yorum)
+    @Html.TextBoxFor(x => x.Yorum, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.Blogid)
+    @Html.TextAreaFor(x => x.Blog.Baslik, new { @class = "form-control", @readonly = "readonly" })
+    <br />
+    <button class="btn btn-success">GÜNCELLE</button>
+}
